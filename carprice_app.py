@@ -4,8 +4,8 @@ import pandas as pd
 import numpy as np
 
 # Load the model and data
-model = pickle.load(open('Project_Car_Price_Predictor/LinearRegressionModel.pkl','rb'))
-car = pd.read_csv('Project_Car_Price_Predictor/Cleaned Car.csv')
+model = pickle.load(open('LinearRegressionModel.pkl','rb'))
+car = pd.read_csv('Cleaned Car.csv')
 
 st.title("🚗 Car Price Predictor")
 
@@ -27,4 +27,4 @@ if st.button("Predict Price"):
         columns=['name', 'company', 'year', 'kms_driven', 'fuel_type']
     )
     prediction = model.predict(input_data)
-    st.success(f"Predicted Price: ₹ {np.round(prediction[0], 2)}")
+    st.success(f"Predicted Price: Rs {np.round(prediction[0],2)}")
